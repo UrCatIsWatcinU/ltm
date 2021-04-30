@@ -1,0 +1,112 @@
+.main{
+    padding: 0 10vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--body-bgc);
+    font-family: var(--ff);
+    color: var(--text-c);
+    overflow: hidden;
+}
+.app{
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-bgc);
+    display: flex;
+    flex-direction: column;
+    padding: 0 2.5vw;
+}
+.app__title{
+    text-align: center;
+    user-select: none;
+    flex: none;
+}
+.app__content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.messages{
+    overflow: auto;
+    flex: auto;
+}
+.message__cont{
+    display: flex;
+}
+.message{
+    width: 60%;
+    padding: 7.5px;
+    padding-bottom: 20px;
+    border-bottom: 1px var(--main-c)solid;
+    position: relative;
+    margin-bottom: 5px;
+}
+.message_my{
+    justify-content: flex-end;
+}
+.message__user{
+    text-decoration: underline;
+    font-size: .8em;
+}
+.message__date{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+.form{
+    padding: 10px 0;
+    border-top: 2px solid var(--main-c);
+    height: max-content;
+    display: flex;
+    align-items: center;
+    flex: none;
+}
+.form__field{
+    max-height: 150px;
+    width: 60%;
+    flex: none;
+    background-color: var(--body-bgc);
+    color: inherit;
+    outline: none;
+    border: 1px var(--main-c) solid;
+    border-radius: 3px;
+    resize: none;
+    transition: .2s ease-in;
+    font-family: inherit;
+    padding: 4px;
+}
+.form__field:focus{
+    background-color: var(--main-bgc);
+    outline: none;
+}
+.form__send{
+    --size: 40px;
+    fill: var(--main-c);
+    width: var(--size);
+    height: var(--size);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.login{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login__content{
+    width: 40%;
+    height: 40%;
+    background-color: var(--main-bgc);
+    border-radius: 10px;
+}

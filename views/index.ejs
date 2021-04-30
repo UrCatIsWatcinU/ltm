@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.min.js"></script>
+    <script src="/static/rounding.js"></script>
+    <script src="/static/lib.js"></script>
+    <script src="/static/messenger.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Messenger</title>
+</head>
+<body class="main">
+    <div class="app">
+        <h1 class="app__title">LTM</h1>
+        <div class="app__content">
+            <div class="messages">
+            </div>
+            <div class="form">
+                <textarea class="form__field" id="msg"></textarea>
+                <svg class="form__send" viewBox="0, 0, 100, 100"></svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
