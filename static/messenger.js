@@ -65,19 +65,24 @@ const main = () => {
     for(let prop in Object.assign(colors, cssProps)){
         document.body.style.setProperty('--' + prop, colors[prop]);
     }
+    const messages = document.querySelector('.messages');
+    messages.style.height = (document.querySelector('.app__content').offsetHeight - document.querySelector('.form').offsetHeight) + 'px'
 
-    socket.on('all', (messages) => {
-        messages.forEach(createMessage);
+    socket.on('all', (msgs) => {
+        msgs.forEach(createMessage);
+        messages.scrollTop = messages.scrollHeight;
     });
-    
+
     const sendBtn = document.querySelector('.form__send');
     sendBtn.innerHTML = `<path d="${roundPathCorners("M 95 50 L 5 95 L 5 5 Z", .05, true)}" />`;
     sendBtn.onclick = sendMsg;
 
     login();
     
-    socket.on('new', createMessage);
-    document.querySelector('.messages').style.height = (document.querySelector('.app__content').offsetHeight - document.querySelector('.form').offsetHeight) + 'px'
+    socket.on('new', (message) => {
+        createMessage(message);
+        messages.scrollTop = messages.scrollHeight;
+    });
 }
 
 document.addEventListener('DOMContentLoaded', main);
