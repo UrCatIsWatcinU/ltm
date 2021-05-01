@@ -35,6 +35,10 @@ io.sockets.on('connection', socket => {
         fs.writeFileSync('./messages.json', JSON.stringify(messages))
     });
     // socket.on('delete', id => {
-
-    // });
+        
+        // });
+    socket.on('clear', () => {
+        messages = [];
+        fs.writeFileSync('./messages.json', JSON.stringify(messages))
+    });
 });
