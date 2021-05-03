@@ -6,7 +6,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.use('/static', express.static(__dirname + "/static"));
 
-const messages = require('./messages.json');
+let messages = require('./messages.json');
 let lastId = 0;
 if(messages && messages.length){
     lastId = Math.max(...messages.map(m => m.id));
@@ -31,14 +31,14 @@ io.sockets.on('connection', socket => {
         messages.push(message);
 
         io.sockets.emit('new', message);
-
-        fs.writeFileSync('./messages.json', JSON.stringify(messages))
-    });
-    // socket.on('delete', id => {
         
-        // });
-    socket.on('clear', () => {
-        messages = [];
-        fs.writeFileSync('./messages.json', JSON.stringify(messages))
+        fs.writeFileSync('./messages.json', JSON.stringify(messages));
+    });
+    
+    socket.on('delete', id => {
+        messages = messages.filter(m => m.id != id);
+        fs.writeFileSync('./messages.json', JSON.stringify(messages));
+        
+        io.sockets.emit('delete' + id);
     });
 });

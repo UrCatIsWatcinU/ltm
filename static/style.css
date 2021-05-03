@@ -56,6 +56,16 @@
     bottom: 0;
     right: 0;
 }
+.message__delete{
+    --size: 1em;
+    transform: rotate(45deg);
+    stroke: var(--main-c);
+    stroke-width: 1.5px;
+    width: var(--size);
+    height: var(--size);
+    cursor: pointer;
+    position: absolute;
+}
 
 
 .form{
