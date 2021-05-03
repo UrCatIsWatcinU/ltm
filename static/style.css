@@ -30,7 +30,8 @@
 
 
 .messages{
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     flex: auto;
 }
 .message__cont{
@@ -64,7 +65,6 @@
     width: var(--size);
     height: var(--size);
     cursor: pointer;
-    position: absolute;
 }
 
 

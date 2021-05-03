@@ -36,8 +36,9 @@ io.sockets.on('connection', socket => {
     });
     
     socket.on('delete', id => {
-        console.log(id);
         messages = messages.filter(m => m.id != id);
         fs.writeFileSync('./messages.json', JSON.stringify(messages));
+        
+        io.sockets.emit('delete' + id);
     });
 });

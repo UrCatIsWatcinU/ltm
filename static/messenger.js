@@ -40,15 +40,17 @@ const createMessage = (message) => {
     messages.append(msgElem);
     messages.scrollTop = messages.scrollHeight;
     
-    const msgId = msgElem.id.replace('m', '')
-    socket.on('delete' + msgId, () => msgElem.remove());
+    console.log('delete' + message.id);
+    socket.on('delete' + message.id, () => {
+        msgElem.remove();
+    });
     
     if(message.user == localStorage.getItem('user')){
         const deleteBtn = setClassName(document.createElementNS('http://www.w3.org/2000/svg', 'svg'), 'message__delete');
         deleteBtn.innerHTML = '<line x1="50%" y1="0%" x2="50%" y2="100%"></line><line x1="0%" y1="50%" x2="100%" y2="50%"></line>';
         msgElem.append(deleteBtn);
 
-        deleteBtn.onclick = () => socket.emit('delete', msgId);
+        deleteBtn.onclick = () => socket.emit('delete', message.id);
     }
 }
 
